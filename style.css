@@ -13,7 +13,7 @@ h3{
 
 .main_frame{
     width: 640px;
-    height: 480px;
+    height: 640px;
     /*border: 2px solid black;*/
     border-radius: 20px;
     background: linear-gradient(145deg, #ECECEC, #F2F2F2);
@@ -33,8 +33,9 @@ h3{
     width: 160px;
     height: 160px;
     background-image: url('img/btn_release.png');
+    box-shadow: 20px 20px 50px #CCCCCC,
+    -20px -20px 50px #FFFFFF;
     margin: 50px auto;
-    border: 2px dashed orange;
     border-radius: 50%;
 }
 #btn:active {
@@ -58,4 +59,9 @@ h3{
     background: #E5E5E5;
     box-shadow: inset 8px 8px 16px #CCCCCC,
                 inset -8px -8px 16px #FFFFFF;
+}
+
+#coin {
+    width: 160px;
+    margin: 0 auto;
 }
