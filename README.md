@@ -4,3 +4,6 @@
 2.setInterval, addEventListener , Canvas 공부하기좋음 
 
 실습해본 동영상 : https://www.youtube.com/watch?v=OMbHdDpCxz0&t=3s
+
+
+index.html파일 실행으로 소스체크
