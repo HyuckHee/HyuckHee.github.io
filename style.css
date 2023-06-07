@@ -1,0 +1,61 @@
+body {
+    background-color: #EAEAEA;
+}
+
+h2{
+    padding: 20px 0;
+    text-align: center;
+}
+h3{
+    padding: 0 20px;
+    /*border: 1px dashed red;*/
+}
+
+.main_frame{
+    width: 640px;
+    height: 480px;
+    /*border: 2px solid black;*/
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ECECEC, #F2F2F2);
+    box-shadow: 20px 20px 50px #CCCCCC,
+                -20px -20px 50px #FFFFFF;
+    margin: 100px auto;
+
+}
+
+#lv-txt {
+    display: inline-block;
+}
+
+#btn{
+    cursor: pointer;
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    background-image: url('img/btn_release.png');
+    margin: 50px auto;
+    border: 2px dashed orange;
+    border-radius: 50%;
+}
+#btn:active {
+    background-image: url('img/btn_push.png');
+}
+
+#lv-btn {
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #E5E5E5, #FFFFFF);
+    box-shadow: 8px 8px 16px #CCCCCC,
+                -8px -8px 16px #FFFFFF;
+    border : none;
+}
+
+#lv-btn:hover {
+    cursor: pointer;
+}
+#lv-btn:active {
+    background: #E5E5E5;
+    box-shadow: inset 8px 8px 16px #CCCCCC,
+                inset -8px -8px 16px #FFFFFF;
+}
