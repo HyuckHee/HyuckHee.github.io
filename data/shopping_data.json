@@ -1,0 +1,58 @@
+{
+  "item" : [
+    {
+      "type" : "pants",
+      "color" : "blue",
+      "name" :"blue_p",
+      "img" :"img/shopping/blue_p.png"
+    },
+    {
+      "type" : "skirt",
+      "color" : "blue",
+      "name" :"blue_s",
+      "img" :"img/shopping/blue_s.png"
+    },
+    {
+      "type" : "t-shirt",
+      "color" : "blue",
+      "name" :"blue_t",
+      "img" :"img/shopping/blue_t.png"
+    },
+    {
+      "type" : "pants",
+      "color" : "pink",
+      "name" :"pink_p",
+      "img" :"img/shopping/pink_p.png"
+    },
+    {
+      "type" : "skirt",
+      "color" : "pink",
+      "name" :"pink_s",
+      "img" :"img/shopping/pink_s.png"
+    },
+    {
+      "type" : "t-shirt",
+      "color" : "pink",
+      "name" :"pink_t",
+      "img" :"img/shopping/pink_t.png"
+    },
+    {
+      "type" : "pants",
+      "color" : "yellow",
+      "name" :"yellow_p",
+      "img" :"img/shopping/yellow_p.png"
+    },
+    {
+      "type" : "skirt",
+      "color" : "yellow",
+      "name" :"yellow_s",
+      "img" :"img/shopping/yellow_s.png"
+    },
+    {
+      "type" : "t-shirt",
+      "color" : "yellow",
+      "name" :"yellow_t",
+      "img" :"img/shopping/yellow_t.png"
+    }
+  ]
+}

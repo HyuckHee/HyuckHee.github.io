@@ -6,25 +6,17 @@
     </head>
 
     <body>
-        <!--눈에 보이는 부분이 구현되어있는곳-->
-
-        <div class="main_frame">
-<!--            <h1> JS Tutorial Main Title</h1>-->
-            <h2>JS Idle Game Tutorial</h2>
-            <h3 id="score">Score: 0</h3>
-            <div Id="lv">
-                <h3 id="lv-txt">LV: 1</h3>
-                <button type="button" id="lv-btn">level up</button>
+        <div id="App">
+            <div class="margin-1">
+                <section class="buttons">
+                    <button class="btn" ><img class="btn_img hamburger" src="img/vanilla/btn_push.png" alt="hamburger" data-value="hamburger"></button>
+                    <button class="btn"><img class="btn_img closet" src="img/shopping/closet_logo.png" alt="closet" data-value="closet"></button>
+                </section>
             </div>
 
-            <div id="coin">
-                <canvas width="160" height="160" id="sequence"></canvas>
-            </div>
-            <div id="btn">
-            </div>
+            <div class="container"></div>
         </div>
 
-
-        <script src="main.js"></script>
+        <script type="module" src="main.js"></script>
     </body>
 </html>

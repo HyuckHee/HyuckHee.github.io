@@ -1,25 +1,68 @@
+:root{
+    --button--size : 60px;
+
+
+    /* annimation */
+    --animation-duration: 300ms;
+}
 body {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px 0px;
     background-color: #EAEAEA;
 }
+ul{
+    padding: 10px;
+}
 
+li{
+    list-style: none;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+section {
+    display: flex;
+    align-items: center;
+
+}
 h2{
-    padding: 20px 0;
-    text-align: center;
+    padding: 20px;
+    align-items: center;
+    margin: 0 auto;
 }
 h3{
     padding: 0 20px;
     /*border: 1px dashed red;*/
 }
 
+#App{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategrey;
+    border-radius: 10px;
+}
+
+.container{
+    width: 700px;
+    height: 600px;
+}
+
 .main_frame{
-    width: 640px;
-    height: 640px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     /*border: 2px solid black;*/
     border-radius: 20px;
     background: linear-gradient(145deg, #ECECEC, #F2F2F2);
-    box-shadow: 20px 20px 50px #CCCCCC,
-                -20px -20px 50px #FFFFFF;
-    margin: 100px auto;
+    margin: 30px auto;
 
 }
 
@@ -27,19 +70,20 @@ h3{
     display: inline-block;
 }
 
-#btn{
-    cursor: pointer;
+#hamburger{
     text-align: center;
     width: 160px;
-    height: 160px;
-    background-image: url('img/btn_release.png');
-    box-shadow: 20px 20px 50px #CCCCCC,
-    -20px -20px 50px #FFFFFF;
-    margin: 50px auto;
-    border-radius: 50%;
+    margin: 20px auto;
 }
-#btn:active {
-    background-image: url('img/btn_push.png');
+
+#btn_hamburger{
+    cursor: pointer;
+    height: 120px;
+    border: none;
+}
+
+.img_hamburger:active {
+    content:url("img/vanilla/btn_push.png");
 }
 
 #lv-btn {
@@ -55,6 +99,7 @@ h3{
 #lv-btn:hover {
     cursor: pointer;
 }
+
 #lv-btn:active {
     background: #E5E5E5;
     box-shadow: inset 8px 8px 16px #CCCCCC,
@@ -64,4 +109,117 @@ h3{
 #coin {
     width: 160px;
     margin: 0 auto;
+}
+
+.btn_img{
+    width: var(--button--size);
+    height: var(--button--size);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+}
+
+
+.hamburger_exit{
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+}
+.exit{
+    display: flex;
+    align-items: end;
+    height: 100%;
+    margin: 5px auto;
+}
+
+
+.logo{
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform var(--animation-duration) ease;
+}
+
+
+
+/*  shopping */
+
+.sectionBtn:hover,
+.btn:hover,
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.container_buttons {
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+}
+.blue{
+    background-color: deepskyblue !important;
+    border-radius: 50px;
+}
+.pink{
+    background-color: hotpink !important;
+    border-radius: 50px;
+}
+.yellow{
+    background-color: greenyellow !important;
+    border-radius: 50px;
+}
+
+.items{
+    width: 100%;
+    height: 300px;
+    margin: 0px auto;
+    overflow-y: auto;
+
+    /*list-style none해주니까 스타일무시하고 list가 쭉 나오던 현상이 고쳐짐*/
+    list-style: none;
+}
+.item__thumbnail{
+    width: 40px;
+    height: 40px;
+}
+.imgBtn{
+    width: 60px;
+    height: 60px;
+}
+
+.sectionBtn{
+    /*뒷배경을 부모와 같은색으로 변경*/
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    /*애니메이션 효과*/
+    transition: transform var(--animation-duration) ease;
+}
+
+.margin{
+    margin: 0px auto;
+}
+.margin-1{
+    margin: 10px;
+}
+.shopping_items{
+    width: 80%;
+}
+
+.exitBtn{
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 0px;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
 }
