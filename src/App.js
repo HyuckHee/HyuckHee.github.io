@@ -10,7 +10,6 @@ export default class {
 
     addEvent=()=>{
         document.querySelector('.buttons').addEventListener('click',(e)=>{
-            console.log(e.target.dataset);
             const {value} = e.target.dataset;
             if(value == 'hamburger'){
                 if(document.querySelector('.main_frame')){
