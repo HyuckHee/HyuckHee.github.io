@@ -1,5 +1,6 @@
 import Vanilla1 from "./Vanilla1.js";
 import MiniShopping from "./Mini-shopping.js";
+import Shooting from "./Shooting.js";
 
 export default class {
     constructor(target) {
@@ -23,6 +24,13 @@ export default class {
                 }
 
                 new MiniShopping(this.target);
+
+            }else if(value == 'shooting'){
+                if(document.querySelector('.main_frame')){
+                    this.target.removeChild(document.querySelector('.main_frame'));
+                }
+
+                new Shooting(this.target);
 
             }
 

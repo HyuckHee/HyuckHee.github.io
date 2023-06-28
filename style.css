@@ -39,6 +39,16 @@ h3{
     /*border: 1px dashed red;*/
 }
 
+
+@-webkit-keyframes testAnimation {
+    from {
+        transform : translateY(0);
+    }
+    to {
+        transform: translateY(-10%);
+    }
+}
+
 #App{
     height: 100%;
     width: 100%;
@@ -111,6 +121,7 @@ h3{
     margin: 0 auto;
 }
 
+
 .btn_img{
     width: var(--button--size);
     height: var(--button--size);
@@ -121,6 +132,11 @@ h3{
 .btn {
     background-color: transparent;
     border: none;
+    animation-duration: 0.5s;
+    animation-name: testAnimation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 
@@ -222,4 +238,43 @@ h3{
     width: 100px;
     height: 50px;
     margin: 10px;
+}
+
+/**/
+/**/
+/* 슈팅 게임*/
+.shootingImage{
+    width: 600px;
+    height: 600px;
+    background-image: url('img/shooting/shooting_bg.png');
+    margin: 0px auto;
+    background-size: 100%,100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.startBtn:hover{
+    transform: scale(1.3);
+}
+.startBtn{
+    border: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 100px;
+    transition: transform var(--animation-duration) ease;
+}
+
+.startImg{
+    justify-content: end;
+    width: 200px;
+}
+.enemyImg:hover{
+    transform: scale(1.1);
+}
+.enemyImg {
+    cursor: pointer;
+    transition: transform var(--animation-duration) ease;;
 }
