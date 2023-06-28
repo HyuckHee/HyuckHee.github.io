@@ -25,7 +25,6 @@ export default class{
         * 4. 게임 실행
         * 5. 게임오버 등등...
         * */
-;
 
         this.addEvent();
 
