@@ -61,7 +61,7 @@ h3{
 
 .container{
     width: 700px;
-    height: 600px;
+    height: 650px;
 }
 
 .main_frame{
@@ -244,8 +244,8 @@ h3{
 /**/
 /* 슈팅 게임*/
 .shootingImage{
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 550px;
     background-image: url('img/shooting/shooting_bg.png');
     margin: 0px auto;
     background-size: 100%,100%;

@@ -4,6 +4,7 @@ export default class{
 
         this.container = document.querySelector('.container');
 
+        this.score = 0;
 
         getHtml(this.target);
 
@@ -39,13 +40,17 @@ export default class{
             this.startBtn.hidden=true;
 
             this.gameStart = true;
+
             this.render();
 
         })
 
         this.container.addEventListener('click',(e)=>{
 
-            if(this.gameStart){
+            if(this.gameStart && e.target.dataset?.type == 'enemy'){
+
+                this.score += Number(e.target.dataset.value);
+                this.target.querySelector('.score').innerHTML = `score : ${this.score}`
 
                 e.target.remove();
             }
@@ -60,15 +65,14 @@ export default class{
         }
         const elapsed = timestamp - this.start;
 
+        //원하는 시간에 실행
         if(elapsed > 2000){
             this.start = timestamp;
-            console.log(timestamp);
+            // console.log(timestamp);
 
             this.enemy = new Enemy(this.container);
         }
             window.requestAnimationFrame(this.render);
-        // this.enemy = new Enemy(this.container);
-        // this.enemy.draw();
 
     }
 
@@ -77,6 +81,7 @@ export default class{
 
     const getHtml=(target)=>{
         target.innerHTML = `<div class="main_frame">
+                    <div class="shootingTop"><p class="score">score : 0</p></div>
                     <div class="container shootingImage">
                         <button class="startBtn"><img src="img/shooting/start.svg" class="startImg"></button>
                     </div>
@@ -90,19 +95,21 @@ export default class{
             this.target = target
             this.containerX = this.target.getBoundingClientRect().x;
             this.containerY = this.target.getBoundingClientRect().y;
-            this.x = (Math.random()*600+1);
-            this.y = (Math.random()*600+1);
+            this.x = (Math.random()*(700-80+1)); // 게임창 크기 600 x 600
+            this.y = (Math.random()*(550-80+1)); // 범위밖으로나가서 크기를 줄였음
 
-
-
+            console.log(this.containerX);
+            //950 ~ 1500
             this.img = document.createElement('img');
             this.img.classList.add('enemyImg')
+            this.img.dataset.type = 'enemy';
+            this.img.dataset.value = '100';
             this.img.src = 'img/shooting/enemy.png';
             this.img.style.position = "absolute"
             this.img.width = 80;
             this.img.height = 80;
-            this.img.style.left = this.x + 40 + this.containerX ;
-            this.img.style.top =  this.y + this.containerY ;
+            this.img.style.left = this.x + this.containerX; // 적 위치 + 게임창 x좌표 + 게임창 옆 여백
+            this.img.style.top =  this.y + this.containerY+80; // 적 위치 + 게임창 x좌표
 
 
             this.draw();
