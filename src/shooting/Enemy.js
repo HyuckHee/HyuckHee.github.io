@@ -37,6 +37,7 @@ export default class{
 
         this.shootingSound = document.createElement('audio');
         this.shootingSound.src = 'sounds/shooting/shootSound.mp3'
+        this.shootingSound.volume = 0.3;
 
         this.score = document.querySelector('.score');
 
