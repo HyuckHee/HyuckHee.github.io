@@ -1,3 +1,5 @@
+import Enemy from "./shooting/Enemy.js";
+
 export default class{
     constructor(target) {
         this.target = target;
@@ -68,7 +70,8 @@ export default class{
         }
 
         for(let i=0; i < this.enemyList.length; i++){
-            if(!this.enemyList[i].getHidden()){
+            //살아있는 상태라면 5초 체크
+            if(this.enemyList[i].getState()){
                 if(timestamp - this.enemyList[i].timestamp >5000){
                     this.gameStart = false;
                     this.startBtn.hidden = false;
@@ -76,7 +79,7 @@ export default class{
             }
         }
         for(let i=0; i < this.enemyList.length; i++){
-            if(!this.enemyList[i].getHidden() && !this.gameStart){
+            if(this.enemyList[i].getState() && !this.gameStart){
                 this.enemyList[i].gameOver = true;
             }
         }
@@ -100,66 +103,4 @@ export default class{
     }
 
 
-    class Enemy {
-        constructor(target,timestamp){
-            this.target = target
-
-            this.img = document.createElement('img');
-            this.img.classList.add('enemyImg')
-            this.img.dataset.type = 'enemy';
-            this.img.dataset.value = '100';
-            this.img.src = 'img/shooting/enemy.png';
-            this.img.style.position = "absolute"
-            this.img.width = 80;
-            this.img.height = 80;
-
-            //컨테이너 크기
-            this.containerX = this.target.getBoundingClientRect().width;
-            this.containerY = this.target.getBoundingClientRect().height;
-            //적 생성위치
-            this.x = this.randomPosition(0,this.containerX,this.img.width);
-            this.y = this.randomPosition(0,this.containerY,this.img.height);
-
-            this.timestamp = timestamp;
-
-            this.img.style.left = `${this.x}px`; // 적 위치 + 게임창 x좌표 + 게임창 옆 여백
-            this.img.style.top =  `${this.y}px`; // 적 위치 + 게임창 x좌표
-
-            this.shootingSound = document.createElement('audio');
-            this.shootingSound.src = './sounds/shooting/shootSound.mp3'
-
-            this.score = document.querySelector('.score');
-
-            this.live = true;
-            this.gameOver = false;
-            this.draw();
-
-
-            this.img.addEventListener('click',(e)=>{
-                if(!this.gameOver){
-                    this.score.dataset.value = `${Number(this.score.dataset.value) + Number(this.img.dataset.value)}`
-                    this.score.innerHTML = `score : ${this.score.dataset.value}`
-
-                    e.target.remove();
-                }
-            })
-
-        }
-
-        draw(){
-            this.target.querySelector('.enemyDiv').appendChild(this.img);
-        }
-        getHidden(){
-            return this.img.hidden
-        }
-        /*
-        * min,max 입력해서 좌표지정
-        */
-        randomPosition(min,max,unitSize){
-            return Math.random()*(max-unitSize-min+1)+min;
-        }
-        getScore(){
-            return Number(this.score.dataset.value)
-        }
-    }
 
