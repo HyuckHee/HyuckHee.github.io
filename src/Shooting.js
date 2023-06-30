@@ -16,6 +16,8 @@ export default class{
         this.enemyMax = 20;
         this.enemyMin = 15;
         this.enemyAmount = this.enemyAmountFn();
+
+        this.stageEle = document.querySelector('.stage');
         /*
         * 1. 캔버스 그리기
         * 2. 기본 이미지 그리기
@@ -100,13 +102,17 @@ export default class{
         this.score.innerHTML = `score : 0`;
         this.score.dataset.value = `0`;
 
+        this.stage=1;
+        this.stageEle.innerHTML = `lv.${this.stage}`
+
+        this.speed = 1000;
     }
     stageUp=()=>{
         this.enemyList = [];
         this.target.querySelector('.enemyDiv').innerHTML = ''
         this.stage++;
 
-        this.stageEle = document.querySelector('.stage');
+
         this.stageEle.innerHTML = `lv.${this.stage}`
 
         this.speed = this.speed - (parseInt((`${this.speed / 100}`)) * (5 * this.stage));
