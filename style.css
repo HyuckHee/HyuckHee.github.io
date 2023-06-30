@@ -286,3 +286,7 @@ h3{
     cursor: pointer;
     transition: transform var(--enemy--animation-duration) ease;
 }
+.score{
+    margin: 20px;
+    font-size: 20px;
+}

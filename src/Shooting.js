@@ -35,10 +35,10 @@ export default class{
     addEvent=()=>{
         this.startBtn.addEventListener('click',()=>{
 
-            this.enemyList = [];
+            //이전 게임 정보 초기화
+            this.gameInit();
 
             this.startBtn.hidden=true;
-
             this.gameStart = true;
 
             //enemy 이미지 모두 제거
@@ -88,6 +88,13 @@ export default class{
 
     }
 
+    gameInit=()=>{
+
+        this.enemyList = [];
+        this.score.innerHTML = `score : 0`;
+        this.score.dataset.value = `0`;
+
+    }
 
 }
 
