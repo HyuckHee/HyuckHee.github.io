@@ -183,7 +183,7 @@ export default class{
     }
 
     insertScore=async (param)=>{
-        await fetch('http://61.73.140.54:3000/score',{
+            await fetch('http://61.73.140.54:3000/score',{
             method: 'PUT', // *GET, POST, PUT, DELETE 등
         headers: {
             "Content-Type": "application/json",
