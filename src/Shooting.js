@@ -38,20 +38,20 @@ export default class{
         this.addEvent();
 
         //ip
-        this.getIp();
+        // this.getIp();
 
-        this.getScore();
+        // this.getScore();
     }
 
-    getIp=async ()=>{
-         await fetch("https://jsonip.com").then(res=>{
-            return res.json()
-        }).then(data =>{
-             this.param.ip = data.ip;
-             this.param.country = data.country;
-         })
-
-    }
+    // getIp=async ()=>{
+    //      await fetch("https://jsonip.com").then(res=>{
+    //         return res.json()
+    //     }).then(data =>{
+    //          this.param.ip = data.ip;
+    //          this.param.country = data.country;
+    //      })
+    //
+    // }
     addEvent=()=>{
         this.startBtn.addEventListener('click',()=>{
 
@@ -64,20 +64,22 @@ export default class{
 
             this.render();
         })
-        this.scoreDiv.addEventListener('keydown',(e)=>{
 
-            if(!document.querySelector('#insertScore')){
-                return;
-            }
-            if(e.keyCode === 13){
-                this.param.name = this.target.querySelector('#insertScore').value;
-                this.param.score = this.score.dataset.value
-
-                this.insertScore(this.param);
-            }else{
-                console.log(e);
-            }
-        })
+        //스코어 창
+        // this.scoreDiv.addEventListener('keydown',(e)=>{
+        //
+        //     if(!document.querySelector('#insertScore')){
+        //         return;
+        //     }
+        //     if(e.keyCode === 13){
+        //         this.param.name = this.target.querySelector('#insertScore').value;
+        //         this.param.score = this.score.dataset.value
+        //
+        //         this.insertScore(this.param);
+        //     }else{
+        //         console.log(e);
+        //     }
+        // })
     }
 
     render=(timestamp)=>{
@@ -124,9 +126,9 @@ export default class{
             if(this.enemyList[i].getState() && !this.gameStart){
                 this.enemyList[i].gameOver = true;
                 //랭킹보이기
-                this.getScore().then(()=>{
-                    this.scoreDiv.style.display = 'flex';
-                })
+                // this.getScore().then(()=>{
+                //     this.scoreDiv.style.display = 'flex';
+                // })
             }
             if(this.enemyList[i].type==='boss' && !this.enemyList[i].getState()){
                 //게임정보 초기화 다음스테이지
@@ -173,29 +175,29 @@ export default class{
         return parseInt(`${Math.random()*(this.enemyMax - this.enemyMin+1)+this.enemyMin}`);
     }
 
-    getScore=async ()=>{
-        await fetch('https://61.73.140.54:3000/score').then(response => {
-            return response.json()
-        }).then(data =>{
-            console.log(data.result);
-            this.scoreList(data.result);
-        })
-    }
+    // getScore=async ()=>{
+    //     await fetch('https://61.73.140.54:3000/score').then(response => {
+    //         return response.json()
+    //     }).then(data =>{
+    //         console.log(data.result);
+    //         this.scoreList(data.result);
+    //     })
+    // }
 
-    insertScore=async (param)=>{
-            await fetch('https://61.73.140.54:3000/score',{
-            method: 'PUT', // *GET, POST, PUT, DELETE 등
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(param)
-        }).then(response => {
-            return response.json();
-        }).then(() =>{
-            this.save = true;
-            this.getScore();
-        })
-    }
+    // insertScore=async (param)=>{
+    //         await fetch('https://61.73.140.54:3000/score',{
+    //         method: 'PUT', // *GET, POST, PUT, DELETE 등
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(param)
+    //     }).then(response => {
+    //         return response.json();
+    //     }).then(() =>{
+    //         this.save = true;
+    //         // this.getScore();
+    //     })
+    // }
     scoreList=(list)=>{
 
         this.tagClear(this.scoreDiv);
@@ -215,13 +217,13 @@ export default class{
                                   </li>`
         }
 
-        if(this.score.dataset.value > list[4].score && !this.save){
-            scoreUl.innerHTML += `<li class="scoreLi insert">
-                                    <p class="shooting_rank bold">NEW</p>
-                                    <input id="insertScore" class="shooting_name bold">
-                                    <p class="shooting_score">${this.score.dataset.value}</p>
-                                  </li>`
-        }
+        // if(this.score.dataset.value > list[4].score && !this.save){
+        //     scoreUl.innerHTML += `<li class="scoreLi insert">
+        //                             <p class="shooting_rank bold">NEW</p>
+        //                             <input id="insertScore" class="shooting_name bold">
+        //                             <p class="shooting_score">${this.score.dataset.value}</p>
+        //                           </li>`
+        // }
         this.scoreDiv.appendChild(scoreUl);
     }
 
